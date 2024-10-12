@@ -1,0 +1,138 @@
+outer(config-if)#EXIT
+Router(config)#IP DHCP POOL VOICE
+Router(dhcp-config)#NETWORK 200.100.10.0 255.255.255.0
+Router(dhcp-config)#DEFAULT-ROUTER 200.100.10.1
+Router(dhcp-config)#OPTION 150 IP 200.100.10.1
+Router(dhcp-config)#EXIT
+Router(config)#TELEPHONY-SERVICE
+Router(config-telephony)#MAX-DN 5
+Router(config-telephony)#MAX-EPHONES 5
+Router(config-telephony)#IP SOURCE-ADDRESS 200.100.10.1 PORT 2000
+Router(config-telephony)#AUTO ASSIGN 4 TO 6
+Router(config-telephony)#AUTO ASSIGN 1 TO 5
+Router(config-telephony)#EXIT
+Router(config)#EPHONE-DN 3
+Router(config-ephone-dn)#%LINK-3-UPDOWN: Interface ephone_dsp DN 3.1, changed state to up
+
+Router(config-ephone-dn)#NUMBER 54003
+Router(config-ephone-dn)#EXIT
+Router(config)#EPHONE-DN 4
+Router(config-ephone-dn)#%LINK-3-UPDOWN: Interface ephone_dsp DN 4.1, changed state to up
+
+Router(config-ephone-dn)#NUMBER 54004
+Router(config-ephone-dn)#EXIT
+Router(config)#
+%IPPHONE-6-REGISTER: ephone-1 IP:200.100.10.2 Socket:2 DeviceType:Phone has registered.
+
+%IPPHONE-6-REGISTER: ephone-2 IP:200.100.10.3 Socket:2 DeviceType:Phone has registered.
+
+Router(config)#
+Router(config)#router rip
+Router(config-router)#network 25.0.0.0
+Router(config-router)#network 192.168.10.0
+Router(config-router)#network 200.100.10.0
+Router(config-router)#END
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#CONF T
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#INT FA0/1
+Router(config-if)#ROUTER RIP
+Router(config-router)#NETWORK 25.0.0.0
+Router(config-router)#NETWORK 192.168.10.0
+Router(config-router)#NETWORK 200.100.10.0
+Router(config-router)#END
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#CONF T
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#INT FA0/1
+Router(config-if)#IP ADD 25.0.0.0 255.255.255.0
+Bad mask /24 for address 25.0.0.0
+Router(config-if)#IP ADD 25.0.0.1 255.0.0.0
+Router(config-if)#NO SHUT
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+Router(config-if)#ROUTER RIP
+Router(config-router)#NETWORK 25.0.0.0
+Router(config-router)#NETWORK 192.168.10.0
+Router(config-router)#NETWORK 200.100.10.0
+Router(config-router)#END
+Router#
+
+outer(config-if)#EXIT
+Router(config)#IP DHCP POOL VOICE
+Router(dhcp-config)#NETWORK 200.100.10.0 255.255.255.0
+Router(dhcp-config)#DEFAULT-ROUTER 200.100.10.1
+Router(dhcp-config)#OPTION 150 IP 200.100.10.1
+Router(dhcp-config)#EXIT
+Router(config)#TELEPHONY-SERVICE
+Router(config-telephony)#MAX-DN 5
+Router(config-telephony)#MAX-EPHONES 5
+Router(config-telephony)#IP SOURCE-ADDRESS 200.100.10.1 PORT 2000
+Router(config-telephony)#AUTO ASSIGN 4 TO 6
+Router(config-telephony)#AUTO ASSIGN 1 TO 5
+Router(config-telephony)#EXIT
+Router(config)#EPHONE-DN 3
+Router(config-ephone-dn)#%LINK-3-UPDOWN: Interface ephone_dsp DN 3.1, changed state to up
+
+Switch(config)#INT RANGE FA0/1-5
+Switch(config-if-range)#SWITCHPORT MODE ACCESS
+Switch(config-if-range)#SWITCHPORT VOICE VLAN 1
+Switch(config-if-range)#EXIT
+Switch(config)#
+
+
+Router(config-ephone-dn)#NUMBER 54003
+Router(config-ephone-dn)#EXIT
+Router(config)#EPHONE-DN 4
+Router(config-ephone-dn)#%LINK-3-UPDOWN: Interface ephone_dsp DN 4.1, changed state to up
+
+Router(config-ephone-dn)#NUMBER 54004
+Router(config-ephone-dn)#EXIT
+Router(config)#
+%IPPHONE-6-REGISTER: ephone-1 IP:200.100.10.2 Socket:2 DeviceType:Phone has registered.
+
+%IPPHONE-6-REGISTER: ephone-2 IP:200.100.10.3 Socket:2 DeviceType:Phone has registered.
+
+Router(config)#
+Router(config)#router rip
+Router(config-router)#network 25.0.0.0
+Router(config-router)#network 192.168.10.0
+Router(config-router)#network 200.100.10.0
+Router(config-router)#END
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#CONF T
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#INT FA0/1
+Router(config-if)#ROUTER RIP
+Router(config-router)#NETWORK 25.0.0.0
+Router(config-router)#NETWORK 192.168.10.0
+Router(config-router)#NETWORK 200.100.10.0
+Router(config-router)#END
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#CONF T
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#INT FA0/1
+Router(config-if)#IP ADD 25.0.0.0 255.255.255.0
+Bad mask /24 for address 25.0.0.0
+Router(config-if)#IP ADD 25.0.0.1 255.0.0.0
+Router(config-if)#NO SHUT
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/1, changed state to up
+
+Router(config-if)#ROUTER RIP
+Router(config-router)#NETWORK 25.0.0.0
+Router(config-router)#NETWORK 192.168.10.0
+Router(config-router)#NETWORK 200.100.10.0
+Router(config-router)#END
+Router#

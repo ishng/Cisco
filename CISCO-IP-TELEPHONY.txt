@@ -1,4 +1,9 @@
-outer(config-if)#EXIT
+Router>En
+Router#Conf T
+Router(Config)#int fa0/0
+Router(config-if)#Ip Adress 200.100.10.1 255.255.255.0
+Router(config-if)#no shut
+Router(config-if)#EXIT
 Router(config)#IP DHCP POOL VOICE
 Router(dhcp-config)#NETWORK 200.100.10.0 255.255.255.0
 Router(dhcp-config)#DEFAULT-ROUTER 200.100.10.1
